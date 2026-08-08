@@ -1,7 +1,6 @@
-cat > .github/workflows/ios-ci.yml <<'EOF'
 name: iOS CI
 
-on:
+"on":
   push:
     branches:
       - main
@@ -23,6 +22,5 @@ jobs:
             -project CICDDemo.xcodeproj \
             -scheme CICDDemo \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 17' \
+            -destination "platform=iOS Simulator,name=iPhone 17" \
             build
-EOF

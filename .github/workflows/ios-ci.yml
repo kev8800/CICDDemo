@@ -17,19 +17,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build iOS app
-  run: |
-    xcodebuild \
-      -project CICDDemo.xcodeproj \
-      -scheme CICDDemo \
-      -sdk iphonesimulator \
-      -destination "platform=iOS Simulator,name=iPhone 17" \
-      build
+        run: |
+          xcodebuild \
+            -project CICDDemo.xcodeproj \
+            -scheme CICDDemo \
+            -sdk iphonesimulator \
+            -destination "platform=iOS Simulator,name=iPhone 17" \
+            build
 
-- name: Run Unit Tests
-  run: |
-    xcodebuild \
-      -project CICDDemo.xcodeproj \
-      -scheme CICDDemo \
-      -sdk iphonesimulator \
-      -destination "platform=iOS Simulator,name=iPhone 17" \
-      test
+      - name: Run Unit Tests
+        run: |
+          xcodebuild \
+            -project CICDDemo.xcodeproj \
+            -scheme CICDDemo \
+            -sdk iphonesimulator \
+            -destination "platform=iOS Simulator,name=iPhone 17" \
+            test

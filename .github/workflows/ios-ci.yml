@@ -1,0 +1,27 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Build iOS app
+        run: |
+          xcodebuild \
+            -project CICDDemo.xcodeproj \
+            -scheme CICDDemo \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            build

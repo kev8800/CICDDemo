@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-     - name: Build iOS app
+      - name: Build iOS app
   run: |
     xcodebuild \
       -project CICDDemo.xcodeproj \

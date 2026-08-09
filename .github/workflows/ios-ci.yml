@@ -16,20 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build iOS app
+      - name: Setup Fastlane
         run: |
-          xcodebuild \
-            -project CICDDemo.xcodeproj \
-            -scheme CICDDemo \
-            -sdk iphonesimulator \
-            -destination "platform=iOS Simulator,name=iPhone 17" \
-            build
+          brew install fastlane
 
-      - name: Run Unit Tests
+      - name: Run CI
         run: |
-          xcodebuild \
-            -project CICDDemo.xcodeproj \
-            -scheme CICDDemo \
-            -sdk iphonesimulator \
-            -destination "platform=iOS Simulator,name=iPhone 17" \
-            test
+          fastlane ios ci
